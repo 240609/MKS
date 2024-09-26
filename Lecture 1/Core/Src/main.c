@@ -95,8 +95,30 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  uint8_t i = 0;
+
+
+  /*uint32_t sos[32] =  {1,0,1,0,1,0,0,1,1,1,0,1,1,1,0,1,1,1,0,0,1,0,1,0,1,0,0,0,0,0,0,0};*/
+  uint32_t sos = 0b10101001110111011100101010000000;
+
   while (1)
   {
+	  if ((sos & (1 << i)) != 0) {
+
+		  LL_GPIO_SetOutputPin(LD2_GPIO_Port, LD2_Pin);
+	  } else {
+
+		  LL_GPIO_ResetOutputPin(LD2_GPIO_Port, LD2_Pin);
+	  }
+
+	 LL_mDelay(200);
+	 /* GPIOA->BSRR = (1<< i);*/
+	 i++;
+
+	 if (i > 31) {
+		 i = 0;
+
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
