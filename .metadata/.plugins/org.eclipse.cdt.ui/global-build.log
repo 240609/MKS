@@ -469,3 +469,159 @@ Finished building: default.size.stdout
  
 Finished building: Lecture 2.list
  
+12:24:40 **** Incremental Build of configuration Debug for project Lecture 2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32F030x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'button1':
+../Core/Src/main.c:88:28: error: void value not ignored as it ought to be
+   88 |                         if(LL_GPIO_SetOutputPin(LED2_GPIO_Port, LED2_Pin)) {
+      |                            ^~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:31: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+12:24:55 **** Incremental Build of configuration Debug for project Lecture 2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32F030x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'button1':
+../Core/Src/main.c:88:28: error: void value not ignored as it ought to be
+   88 |                         if(LL_GPIO_SetOutputPin(LED2_GPIO_Port, LED2_Pin) == 1) {
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:31: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+12:25:22 **** Incremental Build of configuration Debug for project Lecture 2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32F030x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'button1':
+../Core/Src/main.c:88:28: error: void value not ignored as it ought to be
+   88 |                         if(LL_GPIO_SetOutputPin(LED2_GPIO_Port, LED2_Pin) == 1) {
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:31: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+12:26:22 **** Incremental Build of configuration Debug for project Lecture 2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32F030x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'button1':
+../Core/Src/main.c:88:28: warning: implicit declaration of function 'LL_GPIO_SetInputPin'; did you mean 'LL_GPIO_SetOutputPin'? [-Wimplicit-function-declaration]
+   88 |                         if(LL_GPIO_SetInputPin(LED2_GPIO_Port, LED2_Pin) == 1) {
+      |                            ^~~~~~~~~~~~~~~~~~~
+      |                            LL_GPIO_SetOutputPin
+arm-none-eabi-gcc -o "Lecture 2.elf" @"objects.list"   -mcpu=cortex-m0 -T"C:\Temp\Fojtik\MKS\Lecture 2\STM32F030R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/appz/ST/STM32CubeIDE_1.10.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `button1':
+C:/Temp/Fojtik/MKS/Lecture 2/Debug/../Core/Src/main.c:88: undefined reference to `LL_GPIO_SetInputPin'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: Lecture 2.elf] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+12:27:27 **** Incremental Build of configuration Debug for project Lecture 2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32F030x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 2.elf" @"objects.list"   -mcpu=cortex-m0 -T"C:\Temp\Fojtik\MKS\Lecture 2\STM32F030R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 2.elf
+ 
+arm-none-eabi-size  Lecture\ 2.elf 
+arm-none-eabi-objdump -h -S Lecture\ 2.elf  > "Lecture 2.list"
+   text	   data	    bss	    dec	    hex	filename
+   5900	      8	   1592	   7500	   1d4c	Lecture 2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 2.list
+ 
+12:29:14 **** Incremental Build of configuration Debug for project Lecture 2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32F030x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 2.elf" @"objects.list"   -mcpu=cortex-m0 -T"C:\Temp\Fojtik\MKS\Lecture 2\STM32F030R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 2.elf
+ 
+arm-none-eabi-size  Lecture\ 2.elf 
+arm-none-eabi-objdump -h -S Lecture\ 2.elf  > "Lecture 2.list"
+   text	   data	    bss	    dec	    hex	filename
+   5912	      8	   1592	   7512	   1d58	Lecture 2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 2.list
+ 
+12:32:16 **** Incremental Build of configuration Debug for project Lecture 2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32F030x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 2.elf" @"objects.list"   -mcpu=cortex-m0 -T"C:\Temp\Fojtik\MKS\Lecture 2\STM32F030R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 2.elf
+ 
+arm-none-eabi-size  Lecture\ 2.elf 
+arm-none-eabi-objdump -h -S Lecture\ 2.elf  > "Lecture 2.list"
+   text	   data	    bss	    dec	    hex	filename
+   5916	      8	   1592	   7516	   1d5c	Lecture 2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 2.list
+ 
+12:35:08 **** Incremental Build of configuration Debug for project Lecture 2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32F030x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 2.elf" @"objects.list"   -mcpu=cortex-m0 -T"C:\Temp\Fojtik\MKS\Lecture 2\STM32F030R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 2.elf
+ 
+arm-none-eabi-size  Lecture\ 2.elf 
+arm-none-eabi-objdump -h -S Lecture\ 2.elf  > "Lecture 2.list"
+   text	   data	    bss	    dec	    hex	filename
+   5952	      8	   1592	   7552	   1d80	Lecture 2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 2.list
+ 
+12:37:32 **** Incremental Build of configuration Debug for project Lecture 2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32F030x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 2.elf" @"objects.list"   -mcpu=cortex-m0 -T"C:\Temp\Fojtik\MKS\Lecture 2\STM32F030R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 2.elf
+ 
+arm-none-eabi-size  Lecture\ 2.elf 
+arm-none-eabi-objdump -h -S Lecture\ 2.elf  > "Lecture 2.list"
+   text	   data	    bss	    dec	    hex	filename
+   5948	      8	   1592	   7548	   1d7c	Lecture 2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 2.list
+ 
+12:39:24 **** Incremental Build of configuration Debug for project Lecture 2 ****
+make -j4 all 
+arm-none-eabi-size  Lecture\ 2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5948	      8	   1592	   7548	   1d7c	Lecture 2.elf
+Finished building: default.size.stdout
+ 
+12:41:12 **** Incremental Build of configuration Debug for project Lecture 2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32F030x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'button1':
+../Core/Src/main.c:99:51: error: 'LED2_TIME' undeclared (first use in this function)
+   99 |                                 off_time = tick + LED2_TIME;
+      |                                                   ^~~~~~~~~
+../Core/Src/main.c:99:51: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:31: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+12:41:30 **** Incremental Build of configuration Debug for project Lecture 2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32F030x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 2.elf" @"objects.list"   -mcpu=cortex-m0 -T"C:\Temp\Fojtik\MKS\Lecture 2\STM32F030R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 2.elf
+ 
+arm-none-eabi-size  Lecture\ 2.elf 
+arm-none-eabi-objdump -h -S Lecture\ 2.elf  > "Lecture 2.list"
+   text	   data	    bss	    dec	    hex	filename
+   5952	      8	   1592	   7552	   1d80	Lecture 2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 2.list
+ 
+12:43:17 **** Incremental Build of configuration Debug for project Lecture 2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32F030x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 2.elf" @"objects.list"   -mcpu=cortex-m0 -T"C:\Temp\Fojtik\MKS\Lecture 2\STM32F030R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 2.elf
+ 
+arm-none-eabi-size  Lecture\ 2.elf 
+arm-none-eabi-objdump -h -S Lecture\ 2.elf  > "Lecture 2.list"
+   text	   data	    bss	    dec	    hex	filename
+   5952	      8	   1592	   7552	   1d80	Lecture 2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 2.list
+ 

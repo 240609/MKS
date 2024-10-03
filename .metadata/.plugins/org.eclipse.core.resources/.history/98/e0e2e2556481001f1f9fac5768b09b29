@@ -31,12 +31,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define BLINK_TIME 300
-#define BUTTON1_TIME 40
-#define BUTTON2_TIME 40
-#define LED_TIME_SHORT 100
-#define LED_TIME_LONG 1000
-#define DEBOUNCE_TIME 5
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -47,8 +42,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-volatile uint32_t tick;
-static uint32_t off_time;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -61,104 +55,6 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-static void blink() {
-
-	static uint32_t last_blink_tick;
-
-	if(tick > last_blink_tick + BLINK_TIME) {
-		last_blink_tick = tick;
-
-		LL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
-
-	}
-
-}
-
-
-static void button1() {
-
-	static uint32_t last_button_tick;
-	static uint16_t debounce = 0xFFFF;
-
-	if(tick > last_button_tick + DEBOUNCE_TIME) {
-
-		last_button_tick = tick;
-		debounce <<=1;
-
-		if(LL_GPIO_IsInputPinSet(S2_GPIO_Port, S2_Pin) == 1) {
-
-			debounce |= 0x0001;
-
-		}
-
-		if (debounce == 0x8000) {
-
-			LL_GPIO_SetOutputPin(LED2_GPIO_Port, LED2_Pin);
-
-			off_time = tick + LED_TIME_LONG;
-
-		}
-
-		if (tick > off_time) {
-			LL_GPIO_ResetOutputPin(LED2_GPIO_Port, LED2_Pin);
-		}
-	}
-
-
-	/*
-	// Vzorkovani tlacitka
-	if(tick > last_button_tick + BUTTON1_TIME) {
-		last_button_tick = tick;
-
-		static uint32_t old_s2;
-		uint32_t new_s2 = LL_GPIO_IsInputPinSet(S2_GPIO_Port, S2_Pin);
-
-		if (old_s2 && !new_s2) { // falling edge
-			 off_time = tick + LED_TIME_SHORT;
-			 LL_GPIO_SetOutputPin(LED2_GPIO_Port, LED2_Pin);
-		 }
-		 old_s2 = new_s2;
-
-	}
-
-	// Zhasinani LEDky
-	if (tick > off_time) {
-		LL_GPIO_ResetOutputPin(LED2_GPIO_Port, LED2_Pin);
-	}
-	*/
-
-}
-
-
-static void button2() {
-
-	static uint32_t last_button_tick;
-
-
-	// Vzorkovani tlacitka
-	if(tick > last_button_tick + BUTTON2_TIME) {
-		last_button_tick = tick;
-
-		static uint32_t old_s1;
-		uint32_t new_s1 = LL_GPIO_IsInputPinSet(S1_GPIO_Port, S1_Pin);
-
-		if (old_s1 && !new_s1) { // falling edge
-			 off_time = tick + LED_TIME_LONG;
-			 LL_GPIO_SetOutputPin(LED2_GPIO_Port, LED2_Pin);
-		 }
-		 old_s1 = new_s1;
-
-	}
-
-	// Zhasinani LEDky
-	if (tick > off_time) {
-		LL_GPIO_ResetOutputPin(LED2_GPIO_Port, LED2_Pin);
-	}
-
-
-}
-
 
 /* USER CODE END 0 */
 
@@ -194,18 +90,13 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  LL_SYSTICK_EnableIT();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  blink();
-
-	  button1();
-	  button2();
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

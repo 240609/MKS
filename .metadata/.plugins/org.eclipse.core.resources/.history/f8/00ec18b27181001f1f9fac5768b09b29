@@ -36,7 +36,6 @@
 #define BUTTON2_TIME 40
 #define LED_TIME_SHORT 100
 #define LED_TIME_LONG 1000
-#define DEBOUNCE_TIME 5
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -79,34 +78,8 @@ static void blink() {
 static void button1() {
 
 	static uint32_t last_button_tick;
-	static uint16_t debounce = 0xFFFF;
-
-	if(tick > last_button_tick + DEBOUNCE_TIME) {
-
-		last_button_tick = tick;
-		debounce <<=1;
-
-		if(LL_GPIO_IsInputPinSet(S2_GPIO_Port, S2_Pin) == 1) {
-
-			debounce |= 0x0001;
-
-		}
-
-		if (debounce == 0x8000) {
-
-			LL_GPIO_SetOutputPin(LED2_GPIO_Port, LED2_Pin);
-
-			off_time = tick + LED_TIME_LONG;
-
-		}
-
-		if (tick > off_time) {
-			LL_GPIO_ResetOutputPin(LED2_GPIO_Port, LED2_Pin);
-		}
-	}
 
 
-	/*
 	// Vzorkovani tlacitka
 	if(tick > last_button_tick + BUTTON1_TIME) {
 		last_button_tick = tick;
@@ -126,7 +99,7 @@ static void button1() {
 	if (tick > off_time) {
 		LL_GPIO_ResetOutputPin(LED2_GPIO_Port, LED2_Pin);
 	}
-	*/
+
 
 }
 
@@ -158,8 +131,6 @@ static void button2() {
 
 
 }
-
-
 /* USER CODE END 0 */
 
 /**

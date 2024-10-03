@@ -36,7 +36,6 @@
 #define BUTTON2_TIME 40
 #define LED_TIME_SHORT 100
 #define LED_TIME_LONG 1000
-#define DEBOUNCE_TIME 5
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -48,7 +47,6 @@
 
 /* USER CODE BEGIN PV */
 volatile uint32_t tick;
-static uint32_t off_time;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -61,7 +59,6 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
 static void blink() {
 
 	static uint32_t last_blink_tick;
@@ -75,38 +72,11 @@ static void blink() {
 
 }
 
-
 static void button1() {
 
 	static uint32_t last_button_tick;
-	static uint16_t debounce = 0xFFFF;
+	static uint32_t off_time;
 
-	if(tick > last_button_tick + DEBOUNCE_TIME) {
-
-		last_button_tick = tick;
-		debounce <<=1;
-
-		if(LL_GPIO_IsInputPinSet(S2_GPIO_Port, S2_Pin) == 1) {
-
-			debounce |= 0x0001;
-
-		}
-
-		if (debounce == 0x8000) {
-
-			LL_GPIO_SetOutputPin(LED2_GPIO_Port, LED2_Pin);
-
-			off_time = tick + LED_TIME_LONG;
-
-		}
-
-		if (tick > off_time) {
-			LL_GPIO_ResetOutputPin(LED2_GPIO_Port, LED2_Pin);
-		}
-	}
-
-
-	/*
 	// Vzorkovani tlacitka
 	if(tick > last_button_tick + BUTTON1_TIME) {
 		last_button_tick = tick;
@@ -126,7 +96,7 @@ static void button1() {
 	if (tick > off_time) {
 		LL_GPIO_ResetOutputPin(LED2_GPIO_Port, LED2_Pin);
 	}
-	*/
+
 
 }
 
@@ -134,7 +104,7 @@ static void button1() {
 static void button2() {
 
 	static uint32_t last_button_tick;
-
+	static uint32_t off_time;
 
 	// Vzorkovani tlacitka
 	if(tick > last_button_tick + BUTTON2_TIME) {
@@ -145,7 +115,7 @@ static void button2() {
 
 		if (old_s1 && !new_s1) { // falling edge
 			 off_time = tick + LED_TIME_LONG;
-			 LL_GPIO_SetOutputPin(LED2_GPIO_Port, LED2_Pin);
+			 LL_GPIO_SetOutputPin(LED1_GPIO_Port, LED1_Pin);
 		 }
 		 old_s1 = new_s1;
 
@@ -158,8 +128,6 @@ static void button2() {
 
 
 }
-
-
 /* USER CODE END 0 */
 
 /**
@@ -204,8 +172,6 @@ int main(void)
 	  blink();
 
 	  button1();
-	  button2();
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

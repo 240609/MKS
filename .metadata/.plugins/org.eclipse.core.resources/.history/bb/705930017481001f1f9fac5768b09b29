@@ -83,27 +83,27 @@ static void button1() {
 
 	if(tick > last_button_tick + DEBOUNCE_TIME) {
 
-		last_button_tick = tick;
-		debounce <<=1;
+			last_button_tick = tick;
+			debounce <<=1;
 
-		if(LL_GPIO_IsInputPinSet(S2_GPIO_Port, S2_Pin) == 1) {
+			if(LL_GPIO_IsInputPinSet(S1_GPIO_Port, S1_Pin) == 1) {
 
-			debounce |= 0x0001;
+				debounce |= 0x0001;
 
+			}
+
+			if (debounce == 0x8000) {
+
+				LL_GPIO_SetOutputPin(LED2_GPIO_Port, LED2_Pin);
+
+				off_time = tick + DEBOUNCE_TIME;
+
+			}
+
+			if (tick > off_time) {
+					LL_GPIO_ResetOutputPin(LED2_GPIO_Port, LED2_Pin);
+				}
 		}
-
-		if (debounce == 0x8000) {
-
-			LL_GPIO_SetOutputPin(LED2_GPIO_Port, LED2_Pin);
-
-			off_time = tick + LED_TIME_LONG;
-
-		}
-
-		if (tick > off_time) {
-			LL_GPIO_ResetOutputPin(LED2_GPIO_Port, LED2_Pin);
-		}
-	}
 
 
 	/*
