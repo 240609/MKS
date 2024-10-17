@@ -1,0 +1,20 @@
+12:42:31 **** Incremental Build of configuration Debug for project Lecture 4 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F030x8 -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:58:17: warning: 'off_time' defined but not used [-Wunused-variable]
+   58 | static uint32_t off_time;
+      |                 ^~~~~~~~
+arm-none-eabi-gcc -o "Lecture 4.elf" @"objects.list"   -mcpu=cortex-m0 -T"C:\Temp\Fojtik\MKS\Lecture 4\STM32F030R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 4.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 4.elf
+ 
+arm-none-eabi-size  Lecture\ 4.elf 
+arm-none-eabi-objdump -h -S Lecture\ 4.elf  > "Lecture 4.list"
+   text	   data	    bss	    dec	    hex	filename
+  11832	     12	   1804	  13648	   3550	Lecture 4.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 4.list
+ 
+
+12:42:32 Build Finished. 0 errors, 1 warnings. (took 1s.84ms)
+
