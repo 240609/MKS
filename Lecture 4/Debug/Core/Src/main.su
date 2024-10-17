@@ -1,0 +1,9 @@
+../Core/Src/main.c:77:6:HAL_ADC_ConvCpltCallback	16	static
+../Core/Src/main.c:111:13:button1	8	static
+../Core/Src/main.c:135:13:button2	8	static
+../Core/Src/main.c:164:5:main	24	static
+../Core/Src/main.c:257:6:SystemClock_Config	80	static
+../Core/Src/main.c:298:13:MX_ADC_Init	24	static
+../Core/Src/main.c:368:13:MX_USART2_UART_Init	8	static
+../Core/Src/main.c:403:13:MX_GPIO_Init	56	static
+../Core/Src/main.c:459:6:Error_Handler	8	static,ignoring_inline_asm
