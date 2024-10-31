@@ -1,0 +1,10 @@
+12:06:26 **** Incremental Build of configuration Debug for project Lecture 6 ****
+make -j4 all 
+arm-none-eabi-size  Lecture\ 6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12108	   2060	   1788	  15956	   3e54	Lecture 6.elf
+Finished building: default.size.stdout
+ 
+
+12:06:27 Build Finished. 0 errors, 0 warnings. (took 485ms)
+
