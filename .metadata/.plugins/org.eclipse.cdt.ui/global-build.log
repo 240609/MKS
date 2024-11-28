@@ -1,62 +1,425 @@
-12:02:01 **** Incremental Build of configuration Debug for project lpcxpresso55s69_hello_world_cv10 ****
-make -r -j4 all 
-Building file: ../source/hello_world.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -std=gnu99 -D__REDLIB__ -DCPU_LPC55S69JBD100 -DCPU_LPC55S69JBD100_cm33 -DCPU_LPC55S69JBD100_cm33_core0 -DMCUXPRESSO_SDK -DSDK_DEBUGCONSOLE=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\source" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\utilities" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\drivers" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\device" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\startup" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\component\uart" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\component\lists" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\CMSIS" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\board" -O0 -fno-common -g3 -gdwarf-4 -mcpu=cortex-m33 -c -ffunction-sections -fdata-sections -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/hello_world.d" -MT"source/hello_world.o" -MT"source/hello_world.d" -o "source/hello_world.o" "../source/hello_world.c"
-../source/hello_world.c: In function 'password':
-../source/hello_world.c:51:22: warning: implicit declaration of function 'secure_compare' [-Wimplicit-function-declaration]
-   51 |         int result = secure_compare(input, password_stored, strlen(password_stored));
-      |                      ^~~~~~~~~~~~~~
-Finished building: ../source/hello_world.c
+12:17:37 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
  
-Building target: lpcxpresso55s69_hello_world_cv10.axf
-Invoking: MCU Linker
-arm-none-eabi-gcc -nostdlib -Xlinker -no-warn-rwx-segments -Xlinker -Map="lpcxpresso55s69_hello_world_cv10.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T lpcxpresso55s69_hello_world_cv10_Debug.ld -o "lpcxpresso55s69_hello_world_cv10.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_memcpy.o ./utilities/fsl_str.o  ./startup/boot_multicore_slave.o ./startup/startup_lpc55s69_cm33_core0.o  ./source/hello_world.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_flexcomm.o ./drivers/fsl_gpio.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_usart.o  ./device/system_LPC55S69_cm33_core0.o  ./component/uart/fsl_adapter_usart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/pin_mux.o   
-Memory region         Used Size  Region Size  %age Used
-   PROGRAM_FLASH:       16272 B       630 KB      2.52%
-            SRAM:        8480 B       256 KB      3.23%
-           SRAMX:          0 GB        32 KB      0.00%
-         USB_RAM:          0 GB        16 KB      0.00%
-           SRAM4:          0 GB        16 KB      0.00%
-Finished building target: lpcxpresso55s69_hello_world_cv10.axf
- 
-Performing post-build steps
-arm-none-eabi-size "lpcxpresso55s69_hello_world_cv10.axf"; # arm-none-eabi-objcopy -v -O binary "lpcxpresso55s69_hello_world_cv10.axf" "lpcxpresso55s69_hello_world_cv10.bin" ; # checksum -p LPC55S69 -d "lpcxpresso55s69_hello_world_cv10.bin";
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
    text	   data	    bss	    dec	    hex	filename
-  16264	      8	   8472	  24744	   60a8	lpcxpresso55s69_hello_world_cv10.axf
+  15948	    104	   2056	  18108	   46bc	Lecture 10.elf
+Finished building: default.size.stdout
  
-12:02:17 **** Incremental Build of configuration Debug for project lpcxpresso55s69_hello_world_cv10 ****
-make -r -j4 all 
-make[1]: Nothing to be done for 'main-build'.
-Performing post-build steps
-arm-none-eabi-size "lpcxpresso55s69_hello_world_cv10.axf"; # arm-none-eabi-objcopy -v -O binary "lpcxpresso55s69_hello_world_cv10.axf" "lpcxpresso55s69_hello_world_cv10.bin" ; # checksum -p LPC55S69 -d "lpcxpresso55s69_hello_world_cv10.bin";
+Finished building: Lecture 10.list
+ 
+12:17:52 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-size  Lecture\ 10.elf 
    text	   data	    bss	    dec	    hex	filename
-  16264	      8	   8472	  24744	   60a8	lpcxpresso55s69_hello_world_cv10.axf
+  15948	    104	   2056	  18108	   46bc	Lecture 10.elf
+Finished building: default.size.stdout
  
-12:04:29 **** Incremental Build of configuration Debug for project lpcxpresso55s69_hello_world_cv10 ****
-make -r -j4 all 
-Building file: ../source/hello_world.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -std=gnu99 -D__REDLIB__ -DCPU_LPC55S69JBD100 -DCPU_LPC55S69JBD100_cm33 -DCPU_LPC55S69JBD100_cm33_core0 -DMCUXPRESSO_SDK -DSDK_DEBUGCONSOLE=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\source" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\utilities" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\drivers" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\device" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\startup" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\component\uart" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\component\lists" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\CMSIS" -I"C:\Temp\Fojtik\MKS\lpcxpresso55s69_hello_world_cv10\board" -O0 -fno-common -g3 -gdwarf-4 -mcpu=cortex-m33 -c -ffunction-sections -fdata-sections -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/hello_world.d" -MT"source/hello_world.o" -MT"source/hello_world.d" -o "source/hello_world.o" "../source/hello_world.c"
-../source/hello_world.c: In function 'password':
-../source/hello_world.c:51:22: warning: implicit declaration of function 'secure_compare' [-Wimplicit-function-declaration]
-   51 |         int result = secure_compare(input, password_stored, strlen(password_stored));
-      |                      ^~~~~~~~~~~~~~
-Finished building: ../source/hello_world.c
+12:18:58 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
  
-Building target: lpcxpresso55s69_hello_world_cv10.axf
-Invoking: MCU Linker
-arm-none-eabi-gcc -nostdlib -Xlinker -no-warn-rwx-segments -Xlinker -Map="lpcxpresso55s69_hello_world_cv10.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T lpcxpresso55s69_hello_world_cv10_Debug.ld -o "lpcxpresso55s69_hello_world_cv10.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_memcpy.o ./utilities/fsl_str.o  ./startup/boot_multicore_slave.o ./startup/startup_lpc55s69_cm33_core0.o  ./source/hello_world.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_flexcomm.o ./drivers/fsl_gpio.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_usart.o  ./device/system_LPC55S69_cm33_core0.o  ./component/uart/fsl_adapter_usart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/pin_mux.o   
-Memory region         Used Size  Region Size  %age Used
-   PROGRAM_FLASH:       16272 B       630 KB      2.52%
-            SRAM:        8480 B       256 KB      3.23%
-           SRAMX:          0 GB        32 KB      0.00%
-         USB_RAM:          0 GB        16 KB      0.00%
-           SRAM4:          0 GB        16 KB      0.00%
-Finished building target: lpcxpresso55s69_hello_world_cv10.axf
- 
-Performing post-build steps
-arm-none-eabi-size "lpcxpresso55s69_hello_world_cv10.axf"; # arm-none-eabi-objcopy -v -O binary "lpcxpresso55s69_hello_world_cv10.axf" "lpcxpresso55s69_hello_world_cv10.bin" ; # checksum -p LPC55S69 -d "lpcxpresso55s69_hello_world_cv10.bin";
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
    text	   data	    bss	    dec	    hex	filename
-  16264	      8	   8472	  24744	   60a8	lpcxpresso55s69_hello_world_cv10.axf
+  15956	    104	   2056	  18116	   46c4	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:19:20 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  15968	    104	   2056	  18128	   46d0	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:20:16 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  15948	    104	   2056	  18108	   46bc	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:21:07 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  15968	    104	   2056	  18128	   46d0	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:27:20 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:151:19: error: 'Tick' undeclared (first use in this function); did you mean 'uwTick'?
+  151 |                   Tick = HAL_GetTick();
+      |                   ^~~~
+      |                   uwTick
+../Core/Src/main.c:151:19: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+12:27:40 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  15968	    104	   2056	  18128	   46d0	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:27:55 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-size  Lecture\ 10.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15968	    104	   2056	  18128	   46d0	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+12:31:41 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:149:11: error: 'Tick' undeclared (first use in this function); did you mean 'uwTick'?
+  149 |           Tick = HAL_GetTick();
+      |           ^~~~
+      |           uwTick
+../Core/Src/main.c:149:11: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:151:19: error: 'KeyTick' undeclared (first use in this function)
+  151 |                   KeyTick = HAL_GetTick();
+      |                   ^~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+12:32:33 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  16032	    104	   2056	  18192	   4710	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:33:43 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  16032	    104	   2056	  18192	   4710	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:34:55 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  16032	    104	   2056	  18192	   4710	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:38:59 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  16032	    104	   2056	  18192	   4710	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:41:29 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  15992	    104	   2056	  18152	   46e8	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:43:23 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:242:13: error: invalid storage class for function 'MX_TIM3_Init'
+  242 | static void MX_TIM3_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:287:13: error: invalid storage class for function 'MX_USART3_UART_Init'
+  287 | static void MX_USART3_UART_Init(void)
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:320:13: error: invalid storage class for function 'MX_GPIO_Init'
+  320 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:458:1: error: expected declaration or statement at end of input
+  458 | }
+      | ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:53:13: warning: 'MX_GPIO_Init' used but never defined
+   53 | static void MX_GPIO_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:54:13: warning: 'MX_USART3_UART_Init' used but never defined
+   54 | static void MX_USART3_UART_Init(void);
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:55:13: warning: 'MX_TIM3_Init' used but never defined
+   55 | static void MX_TIM3_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:449:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+  449 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:320:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  320 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:287:13: warning: 'MX_USART3_UART_Init' defined but not used [-Wunused-function]
+  287 | static void MX_USART3_UART_Init(void)
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:242:13: warning: 'MX_TIM3_Init' defined but not used [-Wunused-function]
+  242 | static void MX_TIM3_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:196:6: warning: 'SystemClock_Config' defined but not used [-Wunused-function]
+  196 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+12:44:40 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  15992	    104	   2056	  18152	   46e8	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:47:05 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:141:11: warning: unused variable 'Tick' [-Wunused-variable]
+  141 |   uint8_t Tick = 0;
+      |           ^~~~
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  15984	    104	   2056	  18144	   46e0	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:48:18 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:141:11: warning: unused variable 'Tick' [-Wunused-variable]
+  141 |   uint8_t Tick = 0;
+      |           ^~~~
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  16028	    104	   2056	  18188	   470c	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:50:20 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  16040	    104	   2056	  18200	   4718	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:50:46 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  16044	    104	   2056	  18204	   471c	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:52:40 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  16032	    104	   2056	  18192	   4710	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:53:51 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  16032	    104	   2056	  18192	   4710	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:55:20 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:180:64: error: expected ')' before '{' token
+  180 |           if ((HAL_GetTick() > KeyTick+5000 && pass_check != 0) {
+      |              ~                                                 ^~
+      |                                                                )
+../Core/Src/main.c:192:3: error: expected expression before '}' token
+  192 |   }
+      |   ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+12:55:35 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  16032	    104	   2056	  18192	   4710	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:58:03 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  16032	    104	   2056	  18192	   4710	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:59:10 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  16028	    104	   2056	  18188	   470c	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+12:59:54 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  16032	    104	   2056	  18192	   4710	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
+ 
+13:01:07 **** Incremental Build of configuration Debug for project Lecture 10 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lecture 10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Temp\Fojtik\MKS\Lecture 10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lecture 10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lecture 10.elf
+ 
+arm-none-eabi-size  Lecture\ 10.elf 
+arm-none-eabi-objdump -h -S Lecture\ 10.elf  > "Lecture 10.list"
+   text	   data	    bss	    dec	    hex	filename
+  16040	    104	   2056	  18200	   4718	Lecture 10.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lecture 10.list
  
